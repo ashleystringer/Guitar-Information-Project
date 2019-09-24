@@ -1,0 +1,58 @@
+#navbar{
+    overflow: hidden;
+    background-color: #333;
+}
+#navbar a{
+    float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px; 
+}
+#infoBox{
+    position: relative;
+    border: 1px solid black;
+    width: 20%;
+    height: 20%;
+}
+#guitarneck{
+    border: 1px solid black;
+}
+.notes{
+    border: 0.5px solid gray;
+    width: 1%;
+}
+#forumBoardLeft{
+    background-color: lightcyan;
+    width: 25%;
+    overflow: hidden;
+    border: 1px solid gray;
+    display: inline-block;
+    padding: 2px;
+    margin-top: 5px;
+}
+#forumBoardRight{
+    background-color: lightcyan;
+    width: 25%;
+    overflow: hidden;
+    border: 1px solid gray;
+    display: inline-block;
+    padding: 2px;
+    margin-top: 5px;
+}
+.topic{
+    position: relative;
+    height: 5%;
+    width: 95%;
+    border: 1px solid blue;
+    float: right;
+}
+.pagination a:first-child{
+    
+}
+.pagination a:last-child{
+    
+}
+.pagination a{
+    
+}
