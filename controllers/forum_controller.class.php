@@ -1,5 +1,5 @@
 <?php
-ini_set("display_errors", 1);
+//ini_set("display_errors", 1);
 class ForumController{
     private $forum_model;
     public function __construct(){
