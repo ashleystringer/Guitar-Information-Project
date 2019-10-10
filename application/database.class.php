@@ -16,10 +16,10 @@ class Database{
     static private $_instance = null;
     private function __construct(){
         try{
-            echo "<br> try block";
+            //echo "<br> try block";
             $this->objDBConnection = @new mysqli(
             $this->param["host"], $this->param["login"], $this->param["password"], $this->param["database"]);
-            echo "<br>...";
+            //echo "<br>...";
             if(mysqli_connect_errno() != 0){
                 echo "<br> Connect error number is not 0";
                 $message = "Error in connecting to database, error number " . mysqli_connect_errno();
