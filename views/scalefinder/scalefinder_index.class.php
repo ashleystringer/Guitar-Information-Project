@@ -1,6 +1,6 @@
 <?php
 
-class ScalefinderIndex extends ScalefinderIndexView{
+class ScalefinderIndex extends IndexView{
     private $scaleByKey;
     private $guitar_neck;
     private $scalePattern;

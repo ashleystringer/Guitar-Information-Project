@@ -1,19 +1,19 @@
 <?php
-
+//ini_set('display_errors', 1);
 class ScalefinderController{
     
     private $scalefinder_model; //what's wrong with scalefinder model????
     private $guitar_neck;
     
     public function __construct(){
-        $this->scalefinder_model = new ScalefinderOtherModel();
+        $this->scalefinder_model = new ScalefinderModel();
         $this->guitar_neck = new GuitarNeck();
         //$this->scalefinder_model = new ChordfinderModel(); //what's wrong with ScalefinderModel()????
     }
     public function index(){
         echo "Index!";
-        $view = new ScalefinderOther();
-        $view->display();
+        //$view = new ScalefinderIndex();
+        //$view->display();
         echo "testing index";
     }
     public function select(){ //parameters later
@@ -23,7 +23,7 @@ class ScalefinderController{
         $tuning = $_GET["tuning"];
        // echo "test => " . $test;
        // echo "Greetings from select";
-        $view = new ScalefinderSelect();
+        $view = new ScalefinderIndex();
         $scaleByKey = null;
         
         if(isset($key) && isset($scale)){

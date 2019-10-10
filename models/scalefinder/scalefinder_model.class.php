@@ -30,9 +30,9 @@ class ScalefinderModel{
         $this->scales["Pentatonic Blues"] = array(0, 3, 5, 6, 7, 10);
         //return $scales;
     }  
-    public function test($t, $s){
+    /*public function test($t, $s){
     echo "testing " . $t . " s " . $s;
-    }
+    }*/
     private function getNotesByKey(){
         $this->notesByKey["C"] = array("C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B");
         $this->notesByKey["C#"] = array("C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C");
@@ -63,7 +63,6 @@ class ScalefinderModel{
         $scaleByKey = array();
         foreach($this->scales[$scale] as $note){
             $selectedNote = $this->notesByKey[$key][$note];
-            echo $selectedNote;
             array_push($scaleByKey, $selectedNote);
         }
           return $scaleByKey;

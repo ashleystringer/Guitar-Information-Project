@@ -10,7 +10,6 @@ class GuitarNeck{
     //find chord by boxes and put them in array
     
     public function __construct(){
-        echo "Constructor in GuitarNeck class";
         $this->tuning = $tuning;
         $this->fretLength = 23;
         $this->initTunings(); //why 'this' and not 'self'?
