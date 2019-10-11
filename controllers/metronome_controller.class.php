@@ -1,4 +1,5 @@
 <?php
+ini_set("display_errors", 1);
 class MetronomeController{
     private $metronome;
     public function __construct(){
