@@ -10,7 +10,8 @@ class MetronomeController{
         /*$bpm = $_GET["bpm"];
         $measure = $_GET["measure"];*/
         //$view = new MetronomeIndex();
-        $view = MetronomeIndex::getMetronomeIndex();
+        //$view = MetronomeIndex::getMetronomeIndex();
+        $view = new MetronomeIndex();
         $view->display();
         /*if(isset($bpm) && isset($measure)){
             $metronome = new Metronome($bpm, $measure);
