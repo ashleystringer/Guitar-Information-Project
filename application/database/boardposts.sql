@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS `posts`(
 `post_id` int(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `post_content` TEXT NOT NULL,
 `post_date` DATETIME NOT NULL,
-`post_topic` int(8) NOT NULL
+`post_topic` int(8) NOT NULL,
+`post_by` int(100) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `users`(
@@ -40,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `topics`(
 
 
 ALTER TABLE topics ADD FOREIGN KEY(topic_cat);
-
+ALTER TABLE posts ADD FOREIGN KEY(post_topic);
 
 
 

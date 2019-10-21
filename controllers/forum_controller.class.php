@@ -1,4 +1,4 @@
-<?php
+/<?php
 //ini_set("display_errors", 1);
 class ForumController{
     private $forum_model;
@@ -23,9 +23,9 @@ class ForumController{
         $view = new ForumIndex();
         $view->display($topics);
     }
-    public function topic($topic_subject, $topic_id){
+    public function topic($topic_id){
         //$posts = array();
-        $posts = $this->forum_model->listPosts($topic_subject, $topic_id);
+        $posts = $this->forum_model->listPosts($topic_id);
         $view = new ForumTopic($posts);
         $view->display();
     }

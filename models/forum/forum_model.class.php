@@ -56,7 +56,35 @@ class ForumModel{
           return false;
        }
     }
-    
+    public function listPosts($topic_id){
+        try{
+            $sql = "SELECT post_content, DATE(post_date) as date FROM " . $this->tblPosts . " WHERE post_topic=$topid_id";
+            $sql .= " ORDER BY post_date DESC";
+            $query = $this->dbConnection->query($sql);
+            if(!$query){
+                throw new DatabaseException();
+            }elseif($query->num_rows == 0){
+                throw new Exception("No posts available");
+                return 0;
+            }else{
+                $posts = array();
+                while($obj= $query->fetch_object()){
+                    $post = new ForumPost(stripslashes($obj->post_id), stripslashes($obj->post_content), 
+                            stripslashes($obj->post_date), stripslahshes($obj->post_topic), stripslashes($obj->post_by));
+                    $post->setID($obj->topic_id);
+                    array_push($posts, $post);
+                }
+                return $posts;
+            }
+         }
+        catch(DatabaseException $e){
+            return false;
+        }
+        catch(Exception $e){
+            $e->getMessage();
+            return false;
+        }
+    }
     /*public function listPosts($topic_subjects, $topic_id){
         $posts = array();
         try{
