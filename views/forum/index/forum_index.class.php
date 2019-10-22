@@ -23,6 +23,7 @@ class ForumIndex extends IndexView{
         </div>
         <div id="forumBoardRight">
             <?php
+            $test = BASE_URL . "/forum/topic";
                 if($topics == 0){
                     echo "No discussions available.";
                 }else{
@@ -31,7 +32,7 @@ class ForumIndex extends IndexView{
                     foreach($topics as $i => $topic){
                         $topic_subject = $topic->getSubject();
                         $topic_by = $topic->getPoster();
-                        echo "<tr><td>$topic_subject</td><tr>";
+                        echo "<tr><td><a href='",$test,"'>$topic_subject</a></td><tr>";
                     }
                     echo "</table>";
                 }

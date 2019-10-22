@@ -1,7 +1,7 @@
 <?php
 class ForumPost{
     private $post_id, $post_content, $post_date, $post_topic, $post_by;
-    public function __construct($post_id, $post_content, $post_date, $post_topic, $post_by){
+    public function __construct($post_id, $post_content, $post_date, $post_topic, $post_by){ //maybe turn this into an array
         $this->post_id = $post_id;
         $this->post_content = $post_content;
         $this->post_date = $post_date;
