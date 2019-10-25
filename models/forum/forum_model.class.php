@@ -69,8 +69,9 @@ class ForumModel{
             }else{
                 $posts = array();
                 while($obj= $query->fetch_object()){
-                    $post = new ForumPost(stripslashes($obj->post_id), stripslashes($obj->post_content), 
-                            stripslashes($obj->post_date), stripslahshes($obj->post_topic), stripslashes($obj->post_by));
+                    $post_array = array("id" => stripslashes($obj->post_id), "content" => stripslashes($obj->post_content), 
+                        "date" => stripslashes($obj->post_date), "topic" => stripslashes($obj->post_topic), "by" => stripslashes($obj->post_by));
+                    $post = new ForumPost($post_array);
                     $post->setID($obj->topic_id);
                     array_push($posts, $post);
                 }
