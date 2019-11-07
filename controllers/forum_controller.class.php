@@ -25,6 +25,7 @@ class ForumController{
     }
     public function topic($topic_id){
         //$posts = array();
+        
         $ForumModel = new ForumModel();
         $posts = $ForumModel->listPosts($topic_id);
         $view = new ForumTopicView();

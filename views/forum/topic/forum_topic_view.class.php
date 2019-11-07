@@ -3,7 +3,8 @@ class ForumTopicView extends IndexView{
     public function display($posts){
         parent::displayHeader();
         ?>
-        <div></div>
+        <div id="topicTitle"></div>
+        <div><input type="button" value="Add Post"></div>
         <div>
            <?php 
            if($post == 0){

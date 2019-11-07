@@ -30,8 +30,11 @@ class ForumIndex extends IndexView{
                     echo "<table>";
                     echo "<tr><td>Topics</td> <td>Posts</td> <td>By</td></tr>";
                     foreach($topics as $i => $topic){
+                        $topid_id = $topic->getID();
                         $topic_subject = $topic->getSubject();
                         $topic_by = $topic->getPoster();
+                        //include number posts per topic
+                        //$test .= "/topic_id";
                         echo "<tr><td><a href='",$test,"'>$topic_subject</a></td><tr>";
                     }
                     echo "</table>";
