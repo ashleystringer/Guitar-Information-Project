@@ -37,11 +37,11 @@ CREATE TABLE IF NOT EXISTS `topics`(
 
 
 
+ALTER TABLE posts DROP COLUMN `post_topic`;
 
 
-
-ALTER TABLE topics ADD FOREIGN KEY(topic_cat);
-ALTER TABLE posts ADD FOREIGN KEY(post_topic);
+ALTER TABLE topics ADD FOREIGN KEY(topic_cat) REFERENCES categories(cat_id);
+ALTER TABLE posts ADD FOREIGN KEY(post_topic) REFERENCES topics(topic_id);
 
 
 

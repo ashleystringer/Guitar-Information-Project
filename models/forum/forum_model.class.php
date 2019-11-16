@@ -8,6 +8,7 @@ class ForumModel{
     private $tblTopics;
     private $tblCat;
     public function __construct(){
+        echo "ForumModel construct";
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->tblTopics = $this->db->getTopics();
@@ -128,6 +129,22 @@ class ForumModel{
             
         }
         
+    }
+    public function addPost($content){
+        try{
+          $date;
+          $sql = "INSERT INTO " . $this->tblPosts . " (`post_content`, `post_date`, `post_topic`, `post_by`) ";
+          $sql .= "VALUES($content, $date)";
+          $query = $this->dbConnection->query($sql);
+          if(!$query){
+              $errmsg = $this->dbConnection->error;
+              throw new DatabaseException($errmsg);
+          }
+          return $query;
+        }
+        catch(DatabaseException $e){
+            
+        }
     }
 
 }

@@ -24,12 +24,18 @@ class ForumController{
         $view->display($topics);
     }
     public function topic($topic_id){
-        //$posts = array();
-        
+        //$posts = array();    
         $ForumModel = new ForumModel();
         $posts = $ForumModel->listPosts($topic_id);
         $view = new ForumTopicView();
         $view->display($posts);
     }
+    public function post(){
+        $post_array = array();
+        $ForumModel = new ForumModel();
+        if(FILTER_HAS_VAR(INPUT_POST, "content")){
+              $content = filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
+            }
+       }
 }
 
