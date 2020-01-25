@@ -65,6 +65,7 @@ class ForumTopicView extends IndexView{
                     <tr>
                         <td><input type="submit" name="content"></td>
                         <td><input type="button" value="Cancel"></td>
+                        <!-- -->
                     <input type="hidden" name="date" value="<?php time(); ?>">
                     </tr>
                 </form>

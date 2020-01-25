@@ -36,6 +36,12 @@ class ForumController{
         if(FILTER_HAS_VAR(INPUT_POST, "content")){
               $content = filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
             }
+         if(FILTER_HAS_VAR(INPUT_POST, "date")){
+              $date = filter_input(INPUT_POST, "date", FILTER_SANITIZE_STRING);
+            }
+         if(FILTER_HAS_VAR(INPUT_POST, "topic")){
+              $topic = filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING);
+            }
        }
 }
 
