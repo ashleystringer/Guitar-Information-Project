@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `categories`(
 `cat_id` int(8) NOT NULL AUTO_INCREMENT,
 `cat_name` varchar(255) NOT NULL,
 `cat_description` varchar(255) NOT NULL,
+`num_topics` int(8) NOT NULL,
 PRIMARY KEY(cat_id),
 UNIQUE INDEX cat_name_unique(cat_name)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -53,3 +54,5 @@ ALTER TABLE topics ADD FOREIGN KEY(topic_by) REFERENCES users(user_id) ON DELETE
 ALTER TABLE posts ADD FOREIGN KEY(post_topic) REFERENCES topics(topic_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE posts ADD COLUMN post_by int(100) NOT NULL, ADD FOREIGN KEY(post_by) REFERENCES users(user_id) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE categories ADD COLUMN num_topics int (8) NOT NULL;

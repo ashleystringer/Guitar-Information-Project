@@ -8,7 +8,6 @@ class ForumModel{
     private $tblTopics;
     private $tblCat;
     public function __construct(){
-        echo "ForumModel construct";
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->tblTopics = $this->db->getTopics();

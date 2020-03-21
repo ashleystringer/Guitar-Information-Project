@@ -47,6 +47,12 @@
     border: 1px solid blue;
     float: right;
 }
+.topic_list{
+ border: 1px solid lightgray;   
+}
+#forumWrapper{
+    
+}
 .pagination a:first-child{
     
 }
