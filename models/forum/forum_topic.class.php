@@ -22,7 +22,7 @@ class ForumTopic{
     public function getCategory(){
         return $this->topic_cat;
     }
-    public function getPoster(){
+    public function getUser(){
         return $this->topic_by;
     }
 }

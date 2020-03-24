@@ -58,7 +58,7 @@ class ForumTopicView extends IndexView{
         ?>
             <div id="createPost">
             <table>
-                <form method="post" action="#">
+                <form method="post" action="<?=BASE_URL?>/forum/createpost">
                     <tr>
                         <textarea></textarea>
                     </tr>

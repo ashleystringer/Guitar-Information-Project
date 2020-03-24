@@ -43,5 +43,33 @@ class ForumController{
               $topic = filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING);
             }
        }
+       public function createtopic(){
+           $view = new CreateTopicView();
+           $view->display();
+       }
+       public function createpost(){
+           
+       }
+       public function addtopic(){
+        //subject
+        if(FILTER_HAS_VAR(INPUT_POST, "subject")){
+            $subject = filter_input(INPUT_POST, "subject", FILTER_SANITIZE_STRING);
+        }
+        //date
+        if(FILTEr_HAS_VAR(INPUT_POST, "date")){
+            $date - filter_input(INPUT_POST);
+        }
+        //cat
+        if(FILTER_HAS_VAR(INPUT_POST, "cat")){
+            $cat = filter_input(INPUT_POST, "cat", FILTER_SANITIZE_STRING); //string?
+        }
+        //topic by
+        if(FILTER_HAS_VAR(INPUT_POST, "user")){
+            $user = filter_input(INPUT_POST, "user", FILTER_SANITIZE_STRING);
+        }
+        
+        $topic = new ForumTopic($subject, $date, $cat, $user);
+        $ForumModel = new ForumModel();
+       }
 }
 

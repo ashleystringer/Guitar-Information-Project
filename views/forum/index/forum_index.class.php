@@ -1,6 +1,7 @@
 <?php
 class ForumIndex extends IndexView{
     public function display($topics){
+        Session::create();
         parent::displayHeader();
         ?>
         <!-- List names of each topic and group it by category, date and original poster-->
@@ -46,9 +47,9 @@ class ForumIndex extends IndexView{
                 ?>
                 <div>
                     <?php 
-                        if(isset($_SESSION[''])){
+                        if(isset($_SESSION['login_status'])){ //
                             ?>
-                            <div></div>
+                            <div><a href="<?= BASE_URL?>/forum/createtopic">Create Topic</a></div>
                             <?php
                         }
                     ?>

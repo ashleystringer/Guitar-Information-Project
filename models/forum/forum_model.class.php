@@ -86,28 +86,6 @@ class ForumModel{
             return false;
         }
     }
-    /*public function listPosts($topic_subjects, $topic_id){
-        $posts = array();
-        try{
-            $sql = "SELECT * FROM " . $this->tblPosts . " WHERE " . $this->tblPosts . ".post_topic=" . $this->tblTopics . ".topic_subject";
-            $query = $this->dbConnection->query($sql);
-            if(!$query){
-                throw new DatabaseException();
-            }elseif($query->num_rows == 0){
-                return 0;
-            }else{
-                while($obj = $query->fetch_object){
-                    $post = new ForumPost($obj->post_content, $obj->post_date, $obj->post_topic, $obj->post_by);
-                }
-                return $posts;
-            }
-            
-        }
-        catch(DatabaseException $e){
-            
-        }
-    }*/
-    
     //for categories, topics, and post number
     public function listCategories(){
         try{
@@ -140,6 +118,24 @@ class ForumModel{
               throw new DatabaseException($errmsg);
           }
           return $query;
+        }
+        catch(DatabaseException $e){
+            
+        }
+    }
+    public function addTopic($topic){
+        try{
+            $subject = $topic->getSubject();
+            $date = $topic->getDate();
+            $cat = $topic->getCategory();
+            $user = $topic->getUser();
+            $sql = "INSERT INTO " . $this-tblTopics . " (`topic_subject`, `topic_date`, `topic_cat`, `topic_by`) ";
+            $sql .= "VALUES($subject, $date, $cat, $user)";
+            if(!$query){
+                $errmsg = $this->dbConnection->error;
+                throw new DatabaseException($errmsg);
+            }
+            return $query;
         }
         catch(DatabaseException $e){
             
