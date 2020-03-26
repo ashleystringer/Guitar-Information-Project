@@ -34,6 +34,7 @@ class ForumTopicView extends IndexView{
            ?>
 
         </div>
+        
         <?php 
             self::displayCreatePost();
         ?>

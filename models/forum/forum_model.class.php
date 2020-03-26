@@ -22,7 +22,7 @@ class ForumModel{
     //topics, posts, and OP names
     public function listTopics(){
         if($this->db){
-         // echo "DB exists";  
+          //echo "DB exists";  
         }
         try{            
             $sql = "SELECT topic_subject, DATE(topic_date) as date, topic_by FROM " . $this->tblTopics . 
@@ -49,6 +49,7 @@ class ForumModel{
             }
         }   
        catch(DatabaseException $e){
+           echo "Error";
            return false;
        }
        catch(Exception $e){
@@ -124,7 +125,7 @@ class ForumModel{
         }
     }
     public function addTopic($topic){
-        try{
+        /*try{
             $subject = $topic->getSubject();
             $date = $topic->getDate();
             $cat = $topic->getCategory();
@@ -139,7 +140,7 @@ class ForumModel{
         }
         catch(DatabaseException $e){
             
-        }
+        }*/
     }
 
 }

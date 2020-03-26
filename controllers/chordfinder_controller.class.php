@@ -29,11 +29,11 @@ class ChordfinderController{
         
         
         if(isset($key) && isset($chord)){
-        $chordByKey = $test->findChord($key, $chord);
-        $view->receiveChordByKey($chordByKey);
+            $chordByKey = $test->findChord($key, $chord);
+            $view->receiveChordByKey($chordByKey);
         }
         $guitarneck = new GuitarNeck();
-        $neck = $guitarneck->test("Standard");
+        $neck = $guitarneck->getFullNeck("Standard");
         //$neck = $this->guitar_neck->test($this->default_tuning);
         
         $view->display($key, $chord, $neck);

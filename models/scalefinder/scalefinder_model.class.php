@@ -1,9 +1,5 @@
 <?php
 class ScalefinderModel{
-    /*
-        I guess use IndexedDB here since it's 'business logic'
-     *      
-     */
     
     private $db; //for the user information
     private $dbConnection;
@@ -30,9 +26,7 @@ class ScalefinderModel{
         $this->scales["Pentatonic Blues"] = array(0, 3, 5, 6, 7, 10);
         //return $scales;
     }  
-    /*public function test($t, $s){
-    echo "testing " . $t . " s " . $s;
-    }*/
+ 
     private function getNotesByKey(){
         $this->notesByKey["C"] = array("C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B");
         $this->notesByKey["C#"] = array("C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C");
@@ -50,9 +44,9 @@ class ScalefinderModel{
     public function findPattern($scale){
        // $scalePattern = $this->scales[$scale];
         $scalePattern = array();
-        foreach($this->scales[$scale] as $note){
-            $selectedNote = $this->steps[$note];
-            array_push($scalePattern, $selectedNote);
+        foreach($this->scales[$scale] as $note){ //ex. this->scales['Major'] as $note
+            $selectedNote = $this->steps[$note]; //ex. $this->steps[2] = 2
+            array_push($scalePattern, $selectedNote); //maps scale onto steps array
         }
         return $scalePattern;
     }
@@ -61,9 +55,9 @@ class ScalefinderModel{
         $this->getNotesByKey();
        //self::initScales();
         $scaleByKey = array();
-        foreach($this->scales[$scale] as $note){
-            $selectedNote = $this->notesByKey[$key][$note];
-            array_push($scaleByKey, $selectedNote);
+        foreach($this->scales[$scale] as $note){ //ex. this->scales['Major'] as $note
+            $selectedNote = $this->notesByKey[$key][$note]; //ex. this->notesByKey['C']['2'] = 'D'
+            array_push($scaleByKey, $selectedNote); //ex. C - D - E - F - G - A - B
         }
           return $scaleByKey;
     }

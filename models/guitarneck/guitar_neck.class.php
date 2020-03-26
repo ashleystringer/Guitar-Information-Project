@@ -22,60 +22,36 @@ class GuitarNeck{
         $this->listOfTunings["Double Drop D"] = array(2, 9, 2, 7, 11, 2);
     }
     
-    public function test($tuning){
-  //      echo "tuning => " . $tuning;
+    public function getFullNeck($tuning){ //getFullNeck //originally test()
         $notes = array();
-        //echo "listOfTunings[tuning][0] = " . $this->listOfTunings["Standard"][0];
-       // if($this->scale == NULL){ 
         
-        for($i = 0; $i < 6; $i++){
-            // array_push($notes, $i);
-                for($j = 0; $j < 23; $j++){
+        for($i = 0; $i < 7; $i++){ //$i initially was 6
             
-                if(($this->listOfTunings[$tuning][$i] + $j) < 12){
-                
-                    $note = $this->listOfTunings[$tuning][$i] + $j;
-                    $notes[$i][$j] = $this->tones[$note];
-                }else{
-                    $note = $this->listOfTunings[$tuning][$i] + $j - 12;
-                        if($note > 11){
-                            //echo "testing note being greater then 11";
-                            $note -= 12;
-                        }
-               
+                for($j = 0; $j < 23; $j++){
+                    if($i == 6){
+                     $notes[$i][$j] = $j;   
+                     //adding fret numbers to scale here and not in view
+                     //easier to make the numbers appear even 
+                    }else{
+                    if(($this->listOfTunings[$tuning][$i] + $j) < 12){ //ex: listOfTunings['standard'][0] + 1;
+
+                        $note = $this->listOfTunings[$tuning][$i] + $j; 
                         $notes[$i][$j] = $this->tones[$note];
+                    }else{
+                        $note = $this->listOfTunings[$tuning][$i] + $j - 12;
+                            if($note > 11){
+                                //echo "testing note being greater then 11";
+                                $note -= 12;
+                            }
+
+                            $notes[$i][$j] = $this->tones[$note];
+                        }
                     }
                 }
-            }
+            //} 
+                
+           }
             
-        //}
-      //  $notes = array(1, 4, 2, 5, 11);
-        //echo "notes[0][0] " . $notes[5][21];
-       // return $tuning;
        return $notes;
-      //return 0;
     }
-    public function test2($tuning, $scale){
-           $neckByScale = array();
-           $neckArray = test($tuning, $scale);
-            for($i = 0; $i < 6; $i++){
-                for($j = 0; $j < 23; $j++){
-                    if(in_array($neckArray[$i][$j], $scale)){
-                       array_push($neckByScale, $neckArray[$i][$j]);
-                    }
-                }
-            }
-            return $neckByScale;
-    }
-   /* public function getNeckByScale($tuning, $scale){
-        $neckByScale = array();
-        $this->scale = $scale;
-        if($this->scale == NULL){
-            echo "Scale does not exist";
-            test($tuning);
-        }else{
-            test2($tuning, $scale);
-        }
-    
-    }*/
 }

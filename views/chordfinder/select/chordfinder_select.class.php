@@ -53,7 +53,7 @@ class ChordfinderSelect extends ChordfinderIndexView{
                              echo "Key: " . $key . " Chord: " . $chord;
                             echo " ";
                             $chordString = implode(" ", $this->chordByKey);
-                            echo $chordString;
+                            echo "<br>" . $chordString;
                            }else{
                                echo "Please select a key and a chord";
                            }
@@ -63,11 +63,10 @@ class ChordfinderSelect extends ChordfinderIndexView{
                 <div>
                     <?php 
                     $guitarneck = new GuitarNeckView(23, $neck);
-                    //$guitarneck = new GuitarNeckView(23, $neck);
+
                     $guitarneck->setChord($this->chordByKey);
                     $guitarneck->display(); //?
-                   // $guitarneck->setScale($this->chordByKey);
-                   // $guitarneck->display();
+
                     ?>
                 </div>  
             </div>

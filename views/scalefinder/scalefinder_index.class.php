@@ -11,12 +11,11 @@ class ScalefinderIndex extends IndexView{
     public function receiveScaleByKey($scale, $pattern){
        $this->scaleByKey = $scale; //is changing, but not in display
        $this->scalePattern = $pattern;
-       // echo "scaleByKey " . $this->scaleByKey[0];
     }
     /*public function displayGuitarNeck($tuning){
         echo "displayGuitarNeck() in ScalefinderSelect class";
     }*/
-    public function display($key, $scale, $neck){
+    public function display($key, $scale, $neck){ //$key and $scale params only here to help identify names
             parent::displayHeader();
         ?>
             <div>
@@ -79,7 +78,7 @@ class ScalefinderIndex extends IndexView{
                 </div>
                 <div>
                     <?php 
-                        $guitarneck = new GuitarNeckView(23, $neck);
+                        $guitarneck = new GuitarNeckView(23, $neck); //$neck = full neck
                         $guitarneck->setScale($this->scaleByKey);
                         $guitarneck->display();
                         

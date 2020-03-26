@@ -42,45 +42,30 @@ class GuitarNeckView{
      * add elements to array() from 1 to 23
      */
     public function display(){
-       // displayFullNeck();
-        /*if($this->scale){
-            echo "<br> Scale exists <br>";
-        }else{
-            echo "<br> Scale does not exist <br>";
-        }*/
+
         echo "<div>";
-        $this->displayFretNum();
+        //$this->displayFretNum(); 
           echo "<table id='guitarneck'>";
-          for($j = 5; $j > -1; $j--){
+          for($j = 6; $j > -1; $j--){ //$j initially was 5
             $fretNum = -1;  
-            echo "<tr>";  
-            if(!$this->scale){
+            echo "<tr>"; 
+            if(!$this->scale){ //if scale in setScale() is null
                 for($i = 0; $i < $this->neckLength; $i++){
-                  //   if($j == 0){
                         $fretNum++;
-                     //   $this->displayedNeck[0][$fretNum] = $fretNum;
-                 //     }
-                      //echo "<td>testing</td>";
-                    //  else{
-                        echo "<td class='notes'>" . $this->neck[$j][$i] . "</td>";
-                        //echo "<td class='notes'>" . $this->displayedNeck[$j][$i] . "</td>";
-                    //  }
+                        
+                        echo "<td class='notes'>" . $this->neck[$j][$i] . "</td>"; 
+                    
                 }
-               // displayNotes(); //doesn't display?
-            }else{
+
+               }else{
                  for($i = 0; $i < $this->neckLength; $i++){
-                  /* if($j == 0){
-                    $fretNum++;   
-                     //   $this->displayedNeck[0][$fretNum] = $fretNum;
-                    }*/
-              //    else{
-                    if(in_array($this->neck[$j][$i], $this->scale)){
-                          echo "<td class='notes'>" . $this->neck[$j][$i] . "</td>"; 
-                         // echo "<td class='notes'>" . $this->displayedNeck[$j][$i] . "</td>";
-                     }else{
-                         echo "<td class='notes'>" . " " . "</td>";
-                     }
-                   // }
+                        if(in_array($this->neck[$j][$i], $this->scale) && $j < 6){
+                              echo "<td class='notes'>" . $this->neck[$j][$i] . "</td>"; 
+                         }elseif($j == 6){
+                             echo "<td class='notes'> $i</td>";
+                         }else{
+                             echo "<td class='notes'>" . " " . "</td>";
+                         }    
                 }  
             }
             echo "</tr>";

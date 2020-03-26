@@ -47,7 +47,7 @@ class ChordfinderModel{
             $chordByKey = array();
             foreach($this->tonesByChord[$chord] as $note){
                 $selectedNote = $this->notesByKey[$key][$note];
-                echo $selectedNote;
+                //echo $selectedNote;
                 array_push($chordByKey, $selectedNote);
             }
             return $chordByKey;

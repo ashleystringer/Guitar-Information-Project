@@ -21,26 +21,20 @@ class ScalefinderController{
         $key = $_GET["key"];
         $scale = $_GET["scale"];
         $tuning = $_GET["tuning"];
-       // echo "test => " . $test;
-       // echo "Greetings from select";
+        if(!$tuning){
+            $tuning = "Standard";
+        }
+        
         $view = new ScalefinderIndex();
         $scaleByKey = null;
         
         if(isset($key) && isset($scale)){
-        $scaleByKey = $this->scalefinder_model->findScale($key, $scale);
-        $scalePattern = $this->scalefinder_model->findPattern($scale);
-        $view->receiveScaleByKey($scaleByKey, $scalePattern);
+            $scaleByKey = $this->scalefinder_model->findScale($key, $scale);
+            $scalePattern = $this->scalefinder_model->findPattern($scale);
+            $view->receiveScaleByKey($scaleByKey, $scalePattern);
         }
-        $neck = $this->guitar_neck->test($tuning);
-        //$neck = $this->guitar_neck->getNeckByScale($tuning, $scaleByKey);
+        $neck = $this->guitar_neck->getFullNeck($tuning); //gets full neck, regardless of key and scale being null 
+
         $view->display($key, $scale, $neck);
-       // $view->display($key);
-        //echo "scaleByKey in controller => " . $view->scaleByKey[1];
-        //$this->scalefinder_model->findScale($key, $scale);
-    }
-    public function test($testVar){
-        echo "testVar - " . $testVar;
-        $view = new ScalefinderTest();
-        $view->display();
     }
 }

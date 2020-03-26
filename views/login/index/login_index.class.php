@@ -52,7 +52,7 @@ class LoginIndex extends IndexView{
     #logoutBtn{
         margin: 10px;
         border: none;
-        width: 30px;
+        width: 70px;
         background-color: gray;
     }
     #logoutBtn:hover{
@@ -61,7 +61,7 @@ class LoginIndex extends IndexView{
     .logoutOpt{
         margin: 10px;
         border: none;
-        width: 30px;
+        width: 35px;
         background-color: gray; 
         display: none;
     }

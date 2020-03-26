@@ -1,7 +1,6 @@
 <?php
 class Logout extends IndexView{
     public function display(){
-        echo "display() in Logout";
         parent::displayHeader("Log out");
         ?>
 <html>

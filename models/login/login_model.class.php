@@ -6,7 +6,6 @@ class LoginModel{
      $this->db = Database::getDatabase(); //trouble with Database class
      $this->dbConnection = $this->db->getConnection();
      $this->tblUsers = $this->db->getUsers();
-     echo "Constructor in Login Model";
      
      foreach($_POST as $key => $value){
          $_POST[$key] = $this->dbConnection->real_escape_string($value);
@@ -55,7 +54,6 @@ class LoginModel{
         }
         
         try{
- //           echo ":O";
             $sql1 = "INSERT INTO " . $this->tblUsers . " (`user_name`, `user_email`, `user_pass`, `user_date`, `user_role`) ";
             $sql1 .= "VALUES('$username', '$email', '$password', '$date', '$role')";
             $query = $this->dbConnection->query($sql1);
@@ -71,7 +69,6 @@ class LoginModel{
             $error->display($e->getMessage());
             return false;
         }
-        echo ">.>";
     }
     public function authenticateUser($user){
       //  echo "Testing authenticateUser()";
@@ -85,9 +82,7 @@ class LoginModel{
                 " AND " . $this->tblUsers . ".user_email='$email'";*/
         $sql = "SELECT * FROM " . $this->tblUsers . " WHERE user_name='$username'";
         $query = $this->dbConnection->query($sql); 
-        
-         echo ".. .. ... ";
-        
+                
         Session::create();
         $_SESSION['login_status'];
         $_SESSION['username'];

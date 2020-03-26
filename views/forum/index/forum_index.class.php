@@ -37,7 +37,7 @@ class ForumIndex extends IndexView{
                         foreach($topics as $i => $topic){
                             $topid_id = $topic->getID();
                             $topic_subject = $topic->getSubject();
-                            $topic_by = $topic->getPoster();
+                            $topic_by = $topic->getUser();
                             //include number posts per topic
                             //$test .= "/topic_id";
                             echo "<tr><td><a href='",$test,"'>$topic_subject</a></td><td>...</td><td><a href='#'>$topic_by</a></td><tr>";
@@ -50,6 +50,10 @@ class ForumIndex extends IndexView{
                         if(isset($_SESSION['login_status'])){ //
                             ?>
                             <div><a href="<?= BASE_URL?>/forum/createtopic">Create Topic</a></div>
+                            <?php
+                        }else{
+                            ?>
+                            <div>Testing login status session</div>
                             <?php
                         }
                     ?>
