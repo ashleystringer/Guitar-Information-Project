@@ -15,25 +15,31 @@ class MetronomeIndex extends IndexView{
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script> <!-- for canvas, and tone -->
         <script src="https://unpkg.com/tone"></script>
         <script>
-        var synth = new Tone.Synth().toMaster(); //tone.js
-//        synth.triggerAttackRelease("C4", "8n");
-        var toggleBtn = document.getElementById("toggleBtn");
-        if(!toggleBtn){
-            console.log("toggle button doesn't exist");
-        }else{
-            console.log("toggle button exists");
-            console.log("toggle button " + toggleBtn.value);
-        }
-        toggleBtn.addEventListener("click", e => Tone.Transport.toggle());
-
-
-        function triggerSynth(time){
-            synth.triggerAttackRelease('C2', '16n', time);
-        }
-        Tone.Transport.bpm.value = 180;
-        Tone.Transport.schedule(triggerSynth, 0);
-        Tone.Transport.loopEnd = '1m';
-        Tone.Transport.loop = true;
+         var tone = new Tone.Synth().toMaster();
+         var toggleBtn = document.getElementById("toggleBtn");
+         var bpmBtn = document.getElementById("");
+         Tone.Buffer.Transport.bpm.value = 60;
+         function metronome(){
+             tone.Loop(function(time){
+                 
+             }, '4n').start(0);
+             Tone.Transport.start();
+         }
+         function start(){
+             Tone.Transport.start();
+         }
+         function stop(){
+             Tone.Transport.stop();
+         }
+         function selectTempo(){
+             
+         }
+         tone.onload = function(){
+             tone.Loop(function(time){    
+             }, '4n').start(0);
+             Tone.Transport.start();     
+         };
+         toggleBtn.addEventListener("onclick", start);
        //maybe use PPQ?
 
         function setup(){
